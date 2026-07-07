@@ -36,22 +36,8 @@
 body { font-family: var(--sans); background: var(--bg); color: var(--ink); font-size: 14px; line-height: 1.65; }
 .container { max-width: 900px; margin: 0 auto; padding: 0 40px 100px; }
 
-.cover {
-  background: var(--ink);
-  color: white;
-  padding: 72px 64px 56px;
-  position: relative;
-  overflow: hidden;
-  min-height: 320px;
-}
-.cover::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse at 80% 50%, rgba(37,99,235,0.22) 0%, transparent 65%),
-              radial-gradient(ellipse at 15% 80%, rgba(26,79,214,0.12) 0%, transparent 50%);
-  pointer-events: none;
-}
+.cover { background: var(--ink); color: white; padding: 72px 64px 56px; position: relative; overflow: hidden; min-height: 320px; }
+.cover::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 80% 50%, rgba(37,99,235,0.22) 0%, transparent 65%), radial-gradient(ellipse at 15% 80%, rgba(26,79,214,0.12) 0%, transparent 50%); pointer-events: none; }
 .cover-inner { position: relative; z-index: 1; }
 .cover-kicker { font-size: 10px; font-weight: 700; letter-spacing: 0.18em; color: var(--blue-light); text-transform: uppercase; margin-bottom: 18px; }
 .cover-name { font-family: var(--serif); font-size: 52px; line-height: 1.06; color: white; margin-bottom: 16px; }
@@ -117,548 +103,562 @@ body { font-family: var(--sans); background: var(--bg); color: var(--ink); font-
 .post-nav-btn:hover { background: var(--blue-pale); }
 .post-nav-btn:disabled { color: var(--slate-light); border-color: var(--rule); cursor: not-allowed; background: white; }
 .post-dots { display: flex; gap: 6px; align-items: center; }
-.post-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--rule); transition: background 0.2s; }
+.post-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--rule); }
 .post-dot.active { background: var(--blue-mid); }
 
-.company-card { background: white; border: 1px solid var(--rule); border-radius: 8px; padding: 20px 24px; margin-bottom: 14px; }
-.company-name { font-size: 14px; font-weight: 700; color: var(--ink); margin-bottom: 2px; }
-.company-type { font-size: 12px; color: var(--slate); margin-bottom: 12px; }
-.company-roles { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
-.company-role-tag { background: var(--blue-pale2); color: var(--blue); border-radius: 4px; padding: 3px 10px; font-size: 11.5px; font-weight: 500; }
-.company-find { font-size: 12px; color: var(--slate); margin-bottom: 8px; }
+ul.play-list { list-style: none; }
+ul.play-list li { position: relative; padding-left: 16px; margin-bottom: 8px; font-size: 13px; color: var(--ink2); }
+ul.play-list li::before { content: '–'; position: absolute; left: 0; color: var(--slate-light); }
 
-.checklist-group { margin-bottom: 24px; }
-.checklist-group-label { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--blue-mid); margin-bottom: 12px; }
-.checklist-item { display: flex; align-items: flex-start; gap: 12px; padding: 9px 0; border-bottom: 1px solid var(--rule); font-size: 13px; color: var(--ink2); line-height: 1.55; }
-.checklist-item:last-child { border-bottom: none; }
-.check-box { width: 17px; height: 17px; border: 2px solid var(--rule); border-radius: 4px; flex-shrink: 0; margin-top: 1px; }
+.checklist-group { margin-bottom: 22px; }
+.checklist-group h4 { font-size: 12px; font-weight: 700; color: var(--blue-mid); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 10px; }
+.checklist-item { display: flex; align-items: center; gap: 10px; padding: 8px 0; border-bottom: 1px solid var(--rule); font-size: 13px; color: var(--ink2); }
+.checklist-item::before { content: ''; width: 14px; height: 14px; border: 1.5px solid var(--slate-light); border-radius: 4px; flex-shrink: 0; }
 
-ul.play-list { padding-left: 20px; margin: 10px 0; }
-ul.play-list li { font-size: 13px; line-height: 1.65; margin-bottom: 6px; color: var(--ink2); }
-.tools-line { font-size: 12px; color: var(--slate); font-style: italic; margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--rule); }
-
-.headline-before { background: var(--red-bg); border: 1px solid #FECACA; border-radius: 8px; padding: 14px 18px; font-size: 13px; color: var(--red); margin-bottom: 6px; }
-.headline-after { background: var(--green-bg); border: 1px solid #BBF7D0; border-radius: 8px; padding: 14px 18px; font-size: 13px; color: var(--green); margin-bottom: 6px; font-weight: 600; }
-
-.rec-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 20px; }
-.priority-label { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue-mid); margin-bottom: 6px; }
+.reco-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 12px; }
 </style>
 </head>
 <body>
-<div class="cover">
-  <div class="container" style="padding-left:0; padding-right:0;">
+<div class="container" style="padding:0;">
+
+  <div class="cover">
     <div class="cover-inner">
       <div class="cover-kicker">LinkedIn Rebuild Playbook</div>
       <div class="cover-name">Venkatesh Khadpe</div>
-      <div class="cover-positioning">A Melbourne-based software engineer with a South Australian master's degree, hands-on coding across Java, Python and C#, and a growing focus on AI and machine learning built through his postgraduate research.</div>
+      <div class="cover-positioning">A Melbourne based data analyst with a South Australian master's degree, real SQL and Power BI experience from two Indian banks, and three years reading customer behaviour on a retail floor most graduates never see.</div>
       <div class="cover-chips">
-        <div class="chip primary">Software Engineer</div>
-        <div class="chip primary">AI/ML</div>
-        <div class="chip">Junior Developer</div>
+        <div class="chip primary">Data Analyst</div>
+        <div class="chip primary">Business Analyst</div>
+        <div class="chip primary">ICT Analyst</div>
         <div class="chip">Melbourne, VIC</div>
         <div class="chip">Full Work Rights</div>
       </div>
-      <div class="cover-meta">Prepared July 2026 · Confidential · Ark Abroad</div>
+      <div class="cover-meta">Prepared July 2026 &middot; Confidential &middot; Ark Abroad</div>
     </div>
   </div>
-</div>
 
-<div class="container">
+  <div class="container">
 
-<!-- SECTION 01 -->
-<div class="section">
-  <div class="section-num">Section 01</div>
-  <div class="section-title">Where You Are Right Now</div>
-  <div class="rule"></div>
+    <div class="section">
+      <div class="section-num">Section 01</div>
+      <div class="section-title">Where You Are Right Now</div>
+      <div class="rule"></div>
 
-  <div class="three-col">
-    <div class="card">
       <div class="card-label">Profile Score</div>
-      <div class="score-row"><div class="score-label">Headline clarity</div><div class="score-bar-wrap"><div class="score-bar score-bad" style="width:35%"></div></div><div class="score-val">35</div></div>
-      <div class="score-row"><div class="score-label">Experience completeness</div><div class="score-bar-wrap"><div class="score-bar score-bad" style="width:20%"></div></div><div class="score-val">20</div></div>
-      <div class="score-row"><div class="score-label">Skills relevance</div><div class="score-bar-wrap"><div class="score-bar score-mid" style="width:45%"></div></div><div class="score-val">45</div></div>
-      <div class="score-row"><div class="score-label">Content and authority</div><div class="score-bar-wrap"><div class="score-bar score-bad" style="width:5%"></div></div><div class="score-val">5</div></div>
-      <div class="score-row"><div class="score-label">Proof of impact</div><div class="score-bar-wrap"><div class="score-bar score-bad" style="width:15%"></div></div><div class="score-val">15</div></div>
-    </div>
-    <div class="card card-accent">
-      <div class="card-label">What Is Costing You Interviews</div>
-      <ul class="play-list">
-        <li>Profile and resume both stop at January 2023</li>
-        <li>Headline claims roles your history never shows</li>
-        <li>Real coding projects never made it onto the profile</li>
-        <li>No repo, project, or writing sample attached</li>
-        <li>Zero measurable results anywhere on the profile</li>
-        <li>No posts, so recruiters see no active signal</li>
-      </ul>
-    </div>
-    <div class="card">
-      <div class="card-label">What Is Working</div>
-      <ul class="play-list">
-        <li>Local Australian master's degree in IT</li>
-        <li>Real software projects: booking system, AR tracking, embedded logic</li>
-        <li>Programming range: Java, Python, C#, C++, SQL</li>
-        <li>Capstone research touching AI and NLP tooling</li>
-        <li>Already in Melbourne, no relocation friction</li>
-      </ul>
-    </div>
-  </div>
+      <div class="card" style="margin-bottom:24px;">
+        <div class="score-row"><div class="score-label">Headline clarity</div><div class="score-bar-wrap"><div class="score-bar score-bad" style="width:35%;"></div></div><div class="score-val">35</div></div>
+        <div class="score-row"><div class="score-label">Experience completeness</div><div class="score-bar-wrap"><div class="score-bar score-bad" style="width:20%;"></div></div><div class="score-val">20</div></div>
+        <div class="score-row"><div class="score-label">Skills relevance</div><div class="score-bar-wrap"><div class="score-bar score-mid" style="width:45%;"></div></div><div class="score-val">45</div></div>
+        <div class="score-row"><div class="score-label">Content and authority</div><div class="score-bar-wrap"><div class="score-bar score-bad" style="width:5%;"></div></div><div class="score-val">5</div></div>
+        <div class="score-row"><div class="score-label">Proof of impact</div><div class="score-bar-wrap"><div class="score-bar score-bad" style="width:15%;"></div></div><div class="score-val">15</div></div>
+      </div>
 
-  <div class="callout blue"><strong>Root cause:</strong> Recruiters cannot see your last three years, so they assume there is nothing there.</div>
-</div>
-
-<!-- SECTION 02 -->
-<div class="section">
-  <div class="section-num">Section 02</div>
-  <div class="section-title">Profile Foundations</div>
-  <div class="rule"></div>
-
-  <div class="two-col">
-    <div class="card">
-      <div class="card-title">Photo</div>
-      <ul class="play-list">
-        <li>Plain, light background. No busy patterns behind you.</li>
-        <li>Face fills the frame. Shoulders up, business casual.</li>
-        <li>Natural light, 800x800px, no filters.</li>
-      </ul>
-    </div>
-    <div class="card">
-      <div class="card-title">Banner</div>
-      <div class="card-sub">Canva, dark background, 1584x396px</div>
-      <div class="copy-block">Software Engineer · AI/ML
-Java · Python · SQL · C#
-Melbourne, Victoria</div>
-    </div>
-    <div class="card">
-      <div class="card-title">URL</div>
-      <div class="card-sub">Current: linkedin.com/in/venkateshkhadpe</div>
-      <div class="card-sub">Suggested: linkedin.com/in/venkatesh-khadpe-software</div>
-      <div style="font-size:13px;color:var(--ink2);">Edit this from your public profile settings. Adding the role keyword helps you surface in recruiter searches for "software" and "engineer."</div>
-    </div>
-    <div class="card">
-      <div class="card-title">Open to Work</div>
-      <div class="card-sub">Recruiters Only</div>
-      <ul class="play-list">
-        <li>Software Engineer, Junior Developer, Graduate Software Engineer</li>
-        <li>Backend Developer, AI/ML Engineer, Machine Learning Engineer</li>
-        <li>Melbourne, Victoria · On-site and Hybrid · Immediately available</li>
-      </ul>
-    </div>
-  </div>
-</div>
-
-<!-- SECTION 03 -->
-<div class="section">
-  <div class="section-num">Section 03</div>
-  <div class="section-title">Headline</div>
-  <div class="rule"></div>
-
-  <div class="copy-label">Primary</div>
-  <div class="copy-block">Software Engineer | AI/ML | Master of IT, University of South Australia | Java, Python, SQL, C# | Melbourne | Full Work Rights</div>
-  <div style="font-size:12.5px;color:var(--slate);margin-bottom:24px;">Leads with the target roles and the local qualification recruiters filter for first.</div>
-
-  <div class="copy-label">Alternate</div>
-  <div class="copy-block">Built a booking system in ASP.NET before my first job, now writing code with an eye on AI/ML | Software Engineer, Melbourne</div>
-  <div style="font-size:12.5px;color:var(--slate);">Leads with the differentiator that makes this profile memorable instead of another job title.</div>
-</div>
-
-<!-- SECTION 04 -->
-<div class="section">
-  <div class="section-num">Section 04</div>
-  <div class="section-title">About Section</div>
-  <div class="rule"></div>
-  <div class="copy-label">Paste Into LinkedIn , About</div>
-  <div class="copy-block">I built my first real system, a train ticket booking platform in ASP.NET and SQL, before I had finished my Bachelor's. I have been writing code to solve specific, unglamorous problems ever since.
-
-At Kotak Mahindra Bank, I worked with SQL and Excel to pull and clean customer data, and learned how one wrong query can send a whole team down the wrong path. Before that, at PNB MetLife, I kept the internal ticketing system and CRM running, writing SQL to pull records for staff who needed answers fast.
-
-A Master of Information Technology from the University of South Australia sits on top of that now, alongside a BSc in IT from Mumbai. My capstone research pulled me into AI and NLP tooling, and that is where my attention has been going since. In between, I kept working retail in Melbourne to cover the bills, which turned into its own lesson in staying accurate under pressure.
-
-What I bring:
-
-Java, Python, C# and SQL, built across real projects, not just assignments
-
-A research habit picked up from my capstone, now pointed at AI and machine learning
-
-A habit of checking my own work twice before anyone else has to
-
-Looking for Software Engineer, Junior Developer or AI/ML Engineer roles in Melbourne. Full working rights.
-
-venkateshkhadpe0407@gmail.com | +61 (update to Australian number)</div>
-</div>
-
-<!-- SECTION 05 -->
-<div class="section">
-  <div class="section-num">Section 05</div>
-  <div class="section-title">Experience</div>
-  <div class="rule"></div>
-
-  <div class="card">
-    <div class="card-title">Retail Operations & Customer Service</div>
-    <div class="card-sub">Coles Group · Melbourne, VIC · 2023 to Present</div>
-    <div style="font-size:13px;color:var(--ink2);margin-bottom:10px;">One of Australia's largest supermarket chains, handling thousands of transactions a day across every store.</div>
-    <div class="callout amber">Retitled from "Retail Assistant" to reflect the operational function performed. This is income-while-studying and job-hunting work, not a career detour, and the playbook treats it that way.</div>
-    <ul class="play-list">
-      <li>Processed high-volume transactions daily with consistent accuracy under time pressure.</li>
-      <li>Reconciled stock counts and flagged discrepancies before they reached management.</li>
-      <li>Supported new casual staff through onboarding and daily procedure checks.</li>
-      <li>Handled customer queries and complaints calmly during peak trading hours.</li>
-    </ul>
-    <div class="tools-line">POS systems, stock management software, customer service protocols</div>
-  </div>
-
-  <div class="card">
-    <div class="card-title">Assistant Manager, Business Intelligence Unit</div>
-    <div class="card-sub">Kotak Mahindra Bank · Mumbai, India · Oct 2022 to Jan 2023</div>
-    <div style="font-size:13px;color:var(--ink2);margin-bottom:10px;">One of India's largest private banks, where the Business Intelligence Unit turns raw transaction data into decisions for retail banking teams.</div>
-    <ul class="play-list">
-      <li>Queried and cleaned customer transaction data using SQL and Excel pivot tables.</li>
-      <li>Built recurring reports that fed marketing campaign targeting decisions.</li>
-      <li>Cross-checked data outputs against source systems to catch errors early.</li>
-    </ul>
-    <div class="tools-line">SQL, Excel, Power BI</div>
-  </div>
-
-  <div class="card">
-    <div class="card-title">IT Support Intern</div>
-    <div class="card-sub">PNB MetLife · Mumbai, India · Sep 2022 to Oct 2022</div>
-    <div style="font-size:13px;color:var(--ink2);margin-bottom:10px;">PNB MetLife's IT support desk keeps ticketing and CRM systems running for internal banking staff.</div>
-    <ul class="play-list">
-      <li>Resolved internal IT tickets using a structured ticketing system daily.</li>
-      <li>Used SQL queries inside the CRM to pull customer records for staff requests.</li>
-      <li>Logged recurring issues to help the team spot patterns in support tickets.</li>
-    </ul>
-    <div class="tools-line">Ticketing system, CRM, SQL</div>
-  </div>
-</div>
-
-<!-- SECTION 06 -->
-<div class="section">
-  <div class="section-num">Section 06</div>
-  <div class="section-title">Education and Certifications</div>
-  <div class="rule"></div>
-
-  <div class="card">
-    <div class="card-title">Master of Information Technology</div>
-    <div class="card-sub">University of South Australia · Adelaide · 2023 to 2025</div>
-    <div style="font-size:13px;color:var(--ink2);">Covered advanced software and information systems topics building on an undergraduate IT base, with a capstone project that pulled him into AI and NLP research. Gives him the local, recognised qualification hiring managers in Australian software and AI/ML roles look for first.</div>
-  </div>
-  <div class="card">
-    <div class="card-title">Bachelor of Science, Information Technology</div>
-    <div class="card-sub">Vidyalankar Institute of Technology, Mumbai University · Mumbai · 2019 to 2022</div>
-    <div style="font-size:13px;color:var(--ink2);">Covered programming and software fundamentals across multiple languages. Laid the technical groundwork he later applied in the SQL and CRM work at both banking placements.</div>
-  </div>
-
-  <div class="card">
-    <div class="card-title">Certifications</div>
-    <ul class="play-list">
-      <li>Microsoft Certified: Security, Compliance & Identity Fundamentals</li>
-      <li>MongoDB M001: MongoDB Basics</li>
-      <li>Cisco: Introduction to Cybersecurity</li>
-    </ul>
-  </div>
-</div>
-
-<!-- SECTION 07 -->
-<div class="section">
-  <div class="section-num">Section 07</div>
-  <div class="section-title">Skills</div>
-  <div class="rule"></div>
-
-  <div class="skill-pills">
-    <div class="skill-pill top">Java</div>
-    <div class="skill-pill top">Python</div>
-    <div class="skill-pill top">C#</div>
-    <div class="skill-pill top">SQL</div>
-    <div class="skill-pill top">Software Engineering</div>
-  </div>
-
-  <div class="skill-group-label">Technical</div>
-  <div class="skill-pills">
-    <div class="skill-pill regular">JavaScript</div>
-    <div class="skill-pill regular">HTML/CSS</div>
-    <div class="skill-pill regular">C++</div>
-    <div class="skill-pill regular">MongoDB</div>
-    <div class="skill-pill regular">MySQL</div>
-    <div class="skill-pill regular">Excel</div>
-    <div class="skill-pill regular">Power BI</div>
-  </div>
-
-  <div class="skill-group-label">Domain</div>
-  <div class="skill-pills">
-    <div class="skill-pill regular">Applied AI Research</div>
-    <div class="skill-pill regular">Banking & Financial Services</div>
-    <div class="skill-pill regular">Retail Operations</div>
-  </div>
-
-  <div class="skill-group-label">Methodology</div>
-  <div class="skill-pills">
-    <div class="skill-pill regular">Problem Solving</div>
-    <div class="skill-pill regular">Debugging</div>
-    <div class="skill-pill regular">Process Improvement</div>
-    <div class="skill-pill regular">Attention to Detail</div>
-  </div>
-
-  <div class="three-col" style="margin-top:24px;">
-    <div class="card">
-      <div class="card-title">English</div>
-      <div class="card-sub">FULL PROFESSIONAL</div>
-      <div style="font-size:13px;color:var(--ink2);">Baseline for every corporate role he is targeting in Australia.</div>
-    </div>
-    <div class="card">
-      <div class="card-title">Hindi</div>
-      <div class="card-sub">FULL PROFESSIONAL</div>
-      <div style="font-size:13px;color:var(--ink2);">Useful in Melbourne workplaces and communities with a large South Asian population.</div>
-    </div>
-    <div class="card">
-      <div class="card-title">Marathi</div>
-      <div class="card-sub">PROFESSIONAL WORKING</div>
-      <div style="font-size:13px;color:var(--ink2);">Adds cross-cultural range that teams doing customer-facing analytics tend to value.</div>
-    </div>
-  </div>
-</div>
-
-<!-- SECTION 08 -->
-<div class="section">
-  <div class="section-num">Section 08</div>
-  <div class="section-title">Featured and Content</div>
-  <div class="rule"></div>
-
-  <div class="card">
-    <div class="card-label">Featured Pins</div>
-    <ul class="play-list">
-      <li>Pin 1: Day 1 post (below), pinned once published</li>
-      <li>Pin 2: Master of Information Technology, University of South Australia (2025)</li>
-      <li>Pin 3: Train ticket booking system project (ASP.NET, SQL)</li>
-    </ul>
-  </div>
-
-  <div class="post-carousel">
-    <div class="post-slides">
-      <div class="post-slide active">
-        <div class="post-card">
-          <div class="post-header">
-            <div class="post-avatar">VK</div>
-            <div><div class="post-name">Venkatesh Khadpe</div><div class="post-tagline">Software Engineer | AI/ML</div></div>
-            <div class="post-day-pill">Day 1</div>
-          </div>
-          <div class="post-body">Before my first job, I built a train ticket booking system in ASP.NET.
-
-Nobody asked me to. I just wanted to see if I could take a real, messy problem, people booking seats, holding fares, handling cancellations, and make it work end to end.
-
-That instinct hasn't changed. What has changed is the scale of problem I'm chasing. My capstone research pulled me into how AI models handle language, and I keep coming back to the same question I had building that booking system: where does this actually break, and why?
-
-Most job descriptions want you to list frameworks. Nobody asks what problem made you stay up late figuring it out.
-
-What's the last thing you built just because you wanted to know if you could?</div>
-          <div class="post-footer"><button class="copy-btn">Copy post</button></div>
+      <div class="two-col">
+        <div class="card">
+          <div class="card-label">What Is Costing You Interviews</div>
+          <ul class="play-list">
+            <li>Profile and resume both stop at January 2023</li>
+            <li>Headline claims roles your history never shows</li>
+            <li>No dashboard, project, or writing sample attached</li>
+            <li>Skills list buries SQL and Power BI in clutter</li>
+            <li>Zero measurable results anywhere on the profile</li>
+            <li>No posts, so recruiters see no active signal</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-label">What Is Working</div>
+          <ul class="play-list">
+            <li>Local Australian master's degree in IT</li>
+            <li>Two real analyst adjacent banking placements</li>
+            <li>Concrete stack: SQL, Excel, Power BI, Python</li>
+            <li>Already in Melbourne, no relocation friction</li>
+            <li>Range across banking, retail and manufacturing</li>
+          </ul>
         </div>
       </div>
-      <div class="post-slide">
-        <div class="post-card">
-          <div class="post-header">
-            <div class="post-avatar">VK</div>
-            <div><div class="post-name">Venkatesh Khadpe</div><div class="post-tagline">Software Engineer | AI/ML</div></div>
-            <div class="post-day-pill">Day 5</div>
+
+      <div class="callout blue"><strong>Root cause:</strong> Recruiters cannot see your last three years, so they assume there is nothing there.</div>
+    </div>
+
+    <div class="section">
+      <div class="section-num">Section 02</div>
+      <div class="section-title">Profile Foundations</div>
+      <div class="rule"></div>
+
+      <div class="three-col">
+        <div class="card">
+          <div class="card-title">Photo</div>
+          <ul class="play-list">
+            <li>Plain, light background. No busy patterns behind you.</li>
+            <li>Face fills the frame. Shoulders up, business casual.</li>
+            <li>Natural light, 800x800px, no filters.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-title">Banner</div>
+          <div class="card-sub">Canva, dark background, 1584x396px</div>
+          <div class="copy-block">Data Analyst &middot; Business Analyst
+SQL &middot; Excel &middot; Power BI &middot; Python
+Melbourne, Victoria</div>
+        </div>
+        <div class="card">
+          <div class="card-title">URL</div>
+          <div class="card-sub">Current: linkedin.com/in/venkateshkhadpe</div>
+          <div class="card-sub">Suggested: linkedin.com/in/venkatesh-khadpe-data</div>
+          <div style="font-size:13px;color:var(--ink2);">Edit this from your public profile settings. Adding the role keyword helps you surface in recruiter searches for "data."</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Open to Work</div>
+        <div class="card-sub">Recruiters Only</div>
+        <ul class="play-list">
+          <li>Data Analyst, Business Analyst, ICT Analyst</li>
+          <li>Business Intelligence Analyst, Systems Analyst, IT Support Analyst</li>
+          <li>Melbourne, Victoria &middot; On-site and Hybrid &middot; Immediately available</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-num">Section 03</div>
+      <div class="section-title">Headline</div>
+      <div class="rule"></div>
+
+      <div class="card card-accent">
+        <div class="card-label">Primary</div>
+        <div class="copy-block">Data Analyst | Business Analyst | Master of IT, University of South Australia | SQL, Excel, Power BI | Melbourne | Full Work Rights</div>
+        <div style="font-size:12.5px;color:var(--slate);">Leads with the target roles and the local qualification recruiters filter for first.</div>
+      </div>
+
+      <div class="card">
+        <div class="card-label">Alternate</div>
+        <div class="copy-block">Reading customer data on a checkout for three years, now doing it with SQL and Power BI | Data &amp; Business Analyst, Melbourne</div>
+        <div style="font-size:12.5px;color:var(--slate);">Leads with the differentiator that makes this profile memorable instead of another job title.</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-num">Section 04</div>
+      <div class="section-title">About Section</div>
+      <div class="rule"></div>
+
+      <div class="copy-label">Paste Into LinkedIn &middot; About</div>
+      <div class="copy-block">A checkout scanner and a SQL query do the same basic thing. Both turn a mess of individual actions into a pattern someone can act on. I spent three years doing the first while training for the second.
+
+At Kotak Mahindra Bank, I pulled customer transaction data with SQL and Excel, built the reports that fed campaign targeting, and learned how one wrong join can send a whole team down the wrong path. Before that, at PNB MetLife, I ran the internal ticketing system and used SQL inside the CRM to pull records for staff who needed answers fast.
+
+A Master of Information Technology from the University of South Australia sits on top of that experience now, alongside a BSc in IT from Mumbai. In between, I kept working retail in Melbourne to cover the bills, which turned into its own education in reading customer behaviour under pressure.
+
+What I bring:
+SQL, Excel and Power BI skills built on real banking data, not just coursework
+A habit of checking my own numbers twice before anyone else has to
+Three years of direct, high-volume customer interaction most analysts never get
+
+Looking for Data Analyst, Business Analyst or ICT Analyst roles in Melbourne. Full working rights.
+
+venkateshkhadpe0407@gmail.com | +61 (update to Australian number)</div>
+    </div>
+
+    <div class="section">
+      <div class="section-num">Section 05</div>
+      <div class="section-title">Experience</div>
+      <div class="rule"></div>
+
+      <div class="card">
+        <div class="card-title">Retail Operations &amp; Customer Service</div>
+        <div class="card-sub">Coles Group &middot; Melbourne, VIC &middot; 2023 to Present</div>
+        <div style="font-size:12.5px;color:var(--slate);margin-bottom:12px;">One of Australia's largest supermarket chains, handling thousands of transactions a day across every store.</div>
+        <div style="font-size:12px;color:var(--slate-light);margin-bottom:12px;">Retitled from "Retail Assistant" to reflect the operational function performed. This is income while studying and job hunting work, not a career detour, and the playbook treats it that way.</div>
+        <ul class="play-list">
+          <li>Processed high-volume transactions daily with consistent accuracy under time pressure.</li>
+          <li>Reconciled stock counts and flagged discrepancies before they reached management.</li>
+          <li>Supported new casual staff through onboarding and daily procedure checks.</li>
+          <li>Handled customer queries and complaints calmly during peak trading hours.</li>
+        </ul>
+        <div style="font-size:11.5px;color:var(--slate-light);margin-top:10px;">POS systems, stock management software, customer service protocols</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Assistant Manager, Business Intelligence Unit</div>
+        <div class="card-sub">Kotak Mahindra Bank &middot; Mumbai, India &middot; Oct 2022 to Jan 2023</div>
+        <div style="font-size:12.5px;color:var(--slate);margin-bottom:12px;">One of India's largest private banks, where the Business Intelligence Unit turns raw transaction data into decisions for retail banking teams.</div>
+        <ul class="play-list">
+          <li>Queried and cleaned customer transaction data using SQL and Excel pivot tables.</li>
+          <li>Built recurring reports that fed marketing campaign targeting decisions.</li>
+          <li>Cross-checked data outputs against source systems to catch errors early.</li>
+        </ul>
+        <div style="font-size:11.5px;color:var(--slate-light);margin-top:10px;">SQL, Excel, Power BI</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">IT Support Intern</div>
+        <div class="card-sub">PNB MetLife &middot; Mumbai, India &middot; Sep 2022 to Oct 2022</div>
+        <div style="font-size:12.5px;color:var(--slate);margin-bottom:12px;">PNB MetLife's IT support desk keeps ticketing and CRM systems running for internal banking staff.</div>
+        <ul class="play-list">
+          <li>Resolved internal IT tickets using a structured ticketing system daily.</li>
+          <li>Used SQL queries inside the CRM to pull customer records for staff requests.</li>
+          <li>Logged recurring issues to help the team spot patterns in support tickets.</li>
+        </ul>
+        <div style="font-size:11.5px;color:var(--slate-light);margin-top:10px;">Ticketing system, CRM, SQL</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-num">Section 06</div>
+      <div class="section-title">Education and Certifications</div>
+      <div class="rule"></div>
+
+      <div class="two-col">
+        <div class="card">
+          <div class="card-title">Master of Information Technology</div>
+          <div class="card-sub">University of South Australia &middot; Adelaide &middot; 2023 to 2025</div>
+          <div style="font-size:13px;color:var(--ink2);">Covered advanced data and information systems topics building on an undergraduate IT base. Gives him the local, recognised qualification hiring managers in Australian data and BI roles look for first.</div>
+        </div>
+        <div class="card">
+          <div class="card-title">Bachelor of Science, Information Technology</div>
+          <div class="card-sub">Vidyalankar Institute of Technology, Mumbai University &middot; Mumbai &middot; 2019 to 2022</div>
+          <div style="font-size:13px;color:var(--ink2);">Covered programming and software fundamentals across multiple languages. Laid the technical groundwork he later applied in the SQL and CRM work at both banking placements.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Certifications</div>
+        <ul class="play-list">
+          <li>Microsoft Certified: Security, Compliance &amp; Identity Fundamentals</li>
+          <li>MongoDB M001: MongoDB Basics</li>
+          <li>Cisco: Introduction to Cybersecurity</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-num">Section 07</div>
+      <div class="section-title">Skills</div>
+      <div class="rule"></div>
+
+      <div class="skill-group-label">Top</div>
+      <div class="skill-pills">
+        <div class="skill-pill top">SQL</div>
+        <div class="skill-pill top">Power BI</div>
+        <div class="skill-pill top">Excel</div>
+        <div class="skill-pill top">Python</div>
+        <div class="skill-pill top">Data Analysis</div>
+      </div>
+
+      <div class="skill-group-label">Technical</div>
+      <div class="skill-pills">
+        <div class="skill-pill regular">MySQL</div>
+        <div class="skill-pill regular">MongoDB</div>
+        <div class="skill-pill regular">Java</div>
+        <div class="skill-pill regular">C#</div>
+        <div class="skill-pill regular">Dashboard Design</div>
+        <div class="skill-pill regular">Data Cleaning</div>
+        <div class="skill-pill regular">Data Visualisation</div>
+      </div>
+
+      <div class="skill-group-label">Domain</div>
+      <div class="skill-pills">
+        <div class="skill-pill regular">Banking &amp; Financial Services</div>
+        <div class="skill-pill regular">Retail Operations</div>
+        <div class="skill-pill regular">Business Intelligence</div>
+      </div>
+
+      <div class="skill-group-label">Methodology</div>
+      <div class="skill-pills">
+        <div class="skill-pill regular">Stakeholder Reporting</div>
+        <div class="skill-pill regular">Root Cause Analysis</div>
+        <div class="skill-pill regular">Process Improvement</div>
+        <div class="skill-pill regular">Attention to Detail</div>
+      </div>
+
+      <div class="three-col" style="margin-top:16px;">
+        <div class="card">
+          <div class="card-title">English</div>
+          <div class="card-sub">FULL PROFESSIONAL</div>
+          <div style="font-size:12.5px;color:var(--slate);">Baseline for every corporate role he is targeting in Australia.</div>
+        </div>
+        <div class="card">
+          <div class="card-title">Hindi</div>
+          <div class="card-sub">FULL PROFESSIONAL</div>
+          <div style="font-size:12.5px;color:var(--slate);">Useful in Melbourne workplaces and communities with a large South Asian customer base.</div>
+        </div>
+        <div class="card">
+          <div class="card-title">Marathi</div>
+          <div class="card-sub">PROFESSIONAL WORKING</div>
+          <div style="font-size:12.5px;color:var(--slate);">Adds cross-cultural range that teams doing customer-facing analytics tend to value.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-num">Section 08</div>
+      <div class="section-title">Featured and Content</div>
+      <div class="rule"></div>
+
+      <div class="card">
+        <div class="card-title">Featured Pins</div>
+        <ul class="play-list">
+          <li>Pin 1: Day 1 post (below), pinned once published</li>
+          <li>Pin 2: Master of Information Technology, University of South Australia (2025)</li>
+          <li>Pin 3: University capstone Power BI dashboard</li>
+        </ul>
+      </div>
+
+      <div class="post-carousel">
+        <div class="post-slide active" data-index="0">
+          <div class="post-card">
+            <div class="post-header">
+              <div class="post-avatar">VK</div>
+              <div>
+                <div class="post-name">Venkatesh Khadpe</div>
+                <div class="post-tagline">Data Analyst | Business Analyst</div>
+              </div>
+              <div class="post-day-pill">Day 1</div>
+            </div>
+            <div class="post-body" id="post-1">Working a checkout for three years taught me something no data course does.
+
+Customers don't behave the way a clean dataset suggests they should.
+
+Someone buys the same five items every Tuesday for months, then switches to a completely different basket the week prices change on just one of them. No survey would catch that. No dashboard flags it unless someone is actually watching the till.
+
+I used to think retail and data analysis were two separate parts of my life. One paid the bills, the other was what I studied for.
+
+Now I think the checkout was the training ground. It taught me to notice the exception before I trust the average.
+
+What's one thing your current job taught you that no dashboard could?</div>
+            <div class="post-footer"><button class="copy-btn" onclick="copyPost('post-1', this)">Copy post</button></div>
           </div>
-          <div class="post-body">I finished a Master's in IT in an Australian classroom, then went back to a supermarket floor in Melbourne the next week.
+        </div>
+
+        <div class="post-slide" data-index="1">
+          <div class="post-card">
+            <div class="post-header">
+              <div class="post-avatar">VK</div>
+              <div>
+                <div class="post-name">Venkatesh Khadpe</div>
+                <div class="post-tagline">Data Analyst | Business Analyst</div>
+              </div>
+              <div class="post-day-pill">Day 5</div>
+            </div>
+            <div class="post-body" id="post-2">I finished a Master's in IT in an Australian classroom, then went back to a checkout the next week.
 
 Rent doesn't pause for job hunts.
 
-For a while it felt like the degree was just sitting there, unused. Two banking placements in India, a fresh Australian qualification, still stacking shelves five nights a week.
+For a while I felt like I was standing still while the degree just sat there. Two banking roles in India, a fresh Australian qualification, and still swiping groceries five nights a week.
 
-What changed my mind was realising the two weren't in competition. Writing code and reading a busy shop floor both come down to the same thing, staying accurate when there's no time to double check.
+What changed my mind was realising the checkout wasn't cancelling out the degree. It was adding a layer the degree couldn't teach on its own, reading people and patterns in real time, under pressure, with no time to double check anything.
 
 Most career gaps aren't gaps. They're just work nobody thought to put on a resume.
 
 Has your career ever moved sideways before it moved forward?</div>
-          <div class="post-footer"><button class="copy-btn">Copy post</button></div>
-        </div>
-      </div>
-      <div class="post-slide">
-        <div class="post-card">
-          <div class="post-header">
-            <div class="post-avatar">VK</div>
-            <div><div class="post-name">Venkatesh Khadpe</div><div class="post-tagline">Software Engineer | AI/ML</div></div>
-            <div class="post-day-pill">Day 10</div>
+            <div class="post-footer"><button class="copy-btn" onclick="copyPost('post-2', this)">Copy post</button></div>
           </div>
-          <div class="post-body">82.4% of international graduates in Australia are now in full-time work within four months of finishing their degree.
+        </div>
+
+        <div class="post-slide" data-index="2">
+          <div class="post-card">
+            <div class="post-header">
+              <div class="post-avatar">VK</div>
+              <div>
+                <div class="post-name">Venkatesh Khadpe</div>
+                <div class="post-tagline">Data Analyst | Business Analyst</div>
+              </div>
+              <div class="post-day-pill">Day 10</div>
+            </div>
+            <div class="post-body" id="post-3">82.4% of international graduates in Australia are now in full-time work within four months of finishing their degree.
 
 Three years ago that gap against domestic graduates was 8.1 points. It has nearly halved since.
 
 The story most of us tell ourselves, that the market doesn't want international talent, is getting harder to back up with current numbers. What's actually happening is slower and less dramatic: employers are getting more comfortable hiring people who studied here, and the graduates who move first are the ones benefiting.
 
-I'm one of the people betting that trend keeps going in Melbourne's software and AI/ML teams.
+I'm one of the people betting that trend keeps going in Melbourne's data and analytics teams.
 
 Is the market actually closed to you, or have you just not tested it lately?</div>
-          <div class="post-footer"><button class="copy-btn">Copy post</button></div>
+            <div class="post-footer"><button class="copy-btn" onclick="copyPost('post-3', this)">Copy post</button></div>
+          </div>
+        </div>
+
+        <div class="post-nav">
+          <button class="post-nav-btn" id="prevBtn" onclick="movePost(-1)" disabled>Previous</button>
+          <div class="post-dots">
+            <div class="post-dot active" data-dot="0"></div>
+            <div class="post-dot" data-dot="1"></div>
+            <div class="post-dot" data-dot="2"></div>
+          </div>
+          <button class="post-nav-btn" id="nextBtn" onclick="movePost(1)">Next</button>
+        </div>
+      </div>
+
+      <div style="font-size:12.5px;color:var(--slate);margin-top:14px;">Post twice a week after Day 10. Engage with industry posts daily. That is all.</div>
+    </div>
+
+    <div class="section">
+      <div class="section-num">Section 09</div>
+      <div class="section-title">Who to Find and What to Say</div>
+      <div class="rule"></div>
+
+      <div class="card">
+        <div class="card-label">Connection Note</div>
+        <div class="copy-block">Hi [Name], I'm a Data and Business Analyst based in Melbourne with an IT Master's from UniSA and hands-on SQL and Power BI experience from banking. Keen to learn how your team approaches data work here. Would love to connect.</div>
+      </div>
+
+      <div class="card">
+        <div class="card-label">LinkedIn Search String</div>
+        <div class="copy-block">title:("Data Analyst" OR "Business Analyst" OR "Analytics Manager") AND company:"[Company Name]" AND location:"Melbourne"</div>
+      </div>
+
+      <div class="two-col">
+        <div class="card">
+          <div class="card-title">Bendigo and Adelaide Bank</div>
+          <div class="card-sub">Banking, dual headquartered in Bendigo, VIC</div>
+          <div style="font-size:12px;color:var(--blue);margin-bottom:8px;">Business Analyst &middot; Data Analyst</div>
+          <div style="font-size:12.5px;color:var(--slate);">Find: Business Intelligence Manager, Data Analytics Lead</div>
+        </div>
+        <div class="card">
+          <div class="card-title">Coles Group</div>
+          <div class="card-sub">Retail, corporate analytics team headquartered in Melbourne</div>
+          <div style="font-size:12px;color:var(--blue);margin-bottom:8px;">Data Analyst &middot; Business Analyst</div>
+          <div style="font-size:12.5px;color:var(--slate);">Find: Analytics Manager, People and Data Lead</div>
+        </div>
+      </div>
+
+      <div class="two-col">
+        <div class="card">
+          <div class="card-title">Victorian State Government</div>
+          <div class="card-sub">Public sector, Data and Digital roles across departments</div>
+          <div style="font-size:12px;color:var(--blue);margin-bottom:8px;">Data Analyst &middot; ICT Analyst</div>
+          <div style="font-size:12.5px;color:var(--slate);">Find: ICT Recruitment Team, Digital Victoria</div>
+        </div>
+        <div class="card">
+          <div class="card-title">Telstra</div>
+          <div class="card-sub">Telecommunications, headquartered in Melbourne</div>
+          <div style="font-size:12px;color:var(--blue);margin-bottom:8px;">Data Analyst &middot; Business Analyst</div>
+          <div style="font-size:12.5px;color:var(--slate);">Find: Data and Insights Lead, Talent Acquisition Partner</div>
+        </div>
+      </div>
+
+      <div class="two-col">
+        <div class="card">
+          <div class="card-title">Australia Post</div>
+          <div class="card-sub">Logistics, headquartered in Melbourne</div>
+          <div style="font-size:12px;color:var(--blue);margin-bottom:8px;">ICT Analyst &middot; Business Analyst</div>
+          <div style="font-size:12.5px;color:var(--slate);">Find: Data and Analytics Manager, Talent Partner</div>
+        </div>
+        <div class="card">
+          <div class="card-title">Commonwealth Bank of Australia</div>
+          <div class="card-sub">Banking</div>
+          <div style="font-size:12px;color:var(--blue);margin-bottom:8px;">Business Analyst &middot; Data Analyst</div>
+          <div style="font-size:12.5px;color:var(--slate);">Find: Data and Analytics Recruiter</div>
+        </div>
+      </div>
+
+      <div class="two-col">
+        <div class="card">
+          <div class="card-title">Department of Health, Victoria</div>
+          <div class="card-sub">Healthcare, state government</div>
+          <div style="font-size:12px;color:var(--blue);margin-bottom:8px;">Data Analyst &middot; Business Analyst</div>
+          <div style="font-size:12.5px;color:var(--slate);">Find: Workforce Analytics Team</div>
+        </div>
+        <div class="card">
+          <div class="card-title">University of South Australia</div>
+          <div class="card-sub">Education, alumni and industry partnerships</div>
+          <div style="font-size:12px;color:var(--blue);margin-bottom:8px;">Business Analyst &middot; IT Support Analyst</div>
+          <div style="font-size:12.5px;color:var(--slate);">Find: Careers Hub Employer Partnerships, IT Analyst Recruiter</div>
         </div>
       </div>
     </div>
-    <div class="post-nav">
-      <button class="post-nav-btn" id="prevBtn" onclick="changeSlide(-1)" disabled>Previous</button>
-      <div class="post-dots">
-        <div class="post-dot active" id="dot-0"></div>
-        <div class="post-dot" id="dot-1"></div>
-        <div class="post-dot" id="dot-2"></div>
+
+    <div class="section">
+      <div class="section-num">Section 10</div>
+      <div class="section-title">In Order. Don't Jump Ahead.</div>
+      <div class="rule"></div>
+
+      <div class="checklist-group">
+        <h4>Day 1 Foundations</h4>
+        <div class="checklist-item">Update photo</div>
+        <div class="checklist-item">Upload new banner</div>
+        <div class="checklist-item">Update custom URL</div>
+        <div class="checklist-item">Set Open to Work to Recruiters Only</div>
       </div>
-      <button class="post-nav-btn" id="nextBtn" onclick="changeSlide(1)">Next</button>
+
+      <div class="checklist-group">
+        <h4>Day 1 to 2 Copy</h4>
+        <div class="checklist-item">Paste new headline</div>
+        <div class="checklist-item">Paste new About section</div>
+        <div class="checklist-item">Add Coles role with retitled function</div>
+        <div class="checklist-item">Update all three experience entries</div>
+        <div class="checklist-item">Rebuild skills list, remove irrelevant tools</div>
+      </div>
+
+      <div class="checklist-group">
+        <h4>Day 1 Content</h4>
+        <div class="checklist-item">Publish Day 1 post</div>
+        <div class="checklist-item">Pin Master's degree to Featured</div>
+      </div>
+
+      <div class="checklist-group">
+        <h4>Day 3 Outreach</h4>
+        <div class="checklist-item">Send five connection requests using the template</div>
+        <div class="checklist-item">Run the search string against three target companies</div>
+      </div>
+
+      <div class="checklist-group">
+        <h4>Day 5 and Day 10</h4>
+        <div class="checklist-item">Publish Day 5 post</div>
+        <div class="checklist-item">Publish Day 10 post</div>
+        <div class="checklist-item">Pin capstone dashboard to Featured</div>
+      </div>
+
+      <div class="callout blue">Completing this profile does not guarantee interviews. What it does is close the gap between what Venkatesh can actually do and what a recruiter searching Melbourne for a Data Analyst can see in thirty seconds. Given the local Master's and real SQL experience already in place, that gap closing is the single highest leverage move available to him right now.</div>
+
+      <div class="reco-grid">
+        <div class="card">
+          <div class="card-label">Priority 1</div>
+          <div class="card-title">Ask your UniSA course coordinator</div>
+          <div class="copy-block">Hi, I finished my Master of IT with you last year and I'm now targeting Data Analyst and Business Analyst roles in Melbourne. Would you be open to a quick chat about who in your network might be hiring, or any alumni events coming up?</div>
+        </div>
+        <div class="card">
+          <div class="card-label">Priority 2</div>
+          <div class="card-title">Ask a Kotak Mahindra colleague</div>
+          <div class="copy-block">Hi, hope things are going well at Kotak. I'm now based in Melbourne finishing my Master's in IT and looking at Data Analyst roles here. If you know anyone in banking or BI teams in Australia, I'd really appreciate an introduction.</div>
+        </div>
+      </div>
     </div>
-  </div>
-  <div style="font-size:12.5px;color:var(--slate);margin-top:8px;">Post twice a week after Day 10. Engage with industry posts daily. That is all.</div>
-</div>
 
-<!-- SECTION 09 -->
-<div class="section">
-  <div class="section-num">Section 09</div>
-  <div class="section-title">Who to Find and What to Say</div>
-  <div class="rule"></div>
-
-  <div class="card">
-    <div class="card-label">Connection Note</div>
-    <div class="copy-block">Hi [Name], I'm a Software Engineer based in Melbourne with an IT Master's from UniSA and hands-on experience across Java, Python and SQL, plus a growing focus on AI/ML through my postgrad research. Keen to learn how your team approaches engineering here. Would love to connect.</div>
   </div>
-
-  <div class="card">
-    <div class="card-label">LinkedIn Search String</div>
-    <div class="copy-block">title:("Software Engineer" OR "Machine Learning Engineer" OR "AI Engineer") AND company:"[Company Name]" AND location:"Melbourne"</div>
-  </div>
-
-  <div class="company-card">
-    <div class="company-name">REA Group</div>
-    <div class="company-type">PropTech, headquartered in Melbourne</div>
-    <div class="company-roles"><span class="company-role-tag">Software Engineer</span><span class="company-role-tag">ML Engineer</span></div>
-    <div class="company-find">Find: Engineering Manager, Technology Talent Partner</div>
-  </div>
-  <div class="company-card">
-    <div class="company-name">SEEK</div>
-    <div class="company-type">Employment platform, headquartered in Melbourne</div>
-    <div class="company-roles"><span class="company-role-tag">Software Engineer</span><span class="company-role-tag">AI/ML Engineer</span></div>
-    <div class="company-find">Find: Engineering Lead, Technology Recruiter</div>
-  </div>
-  <div class="company-card">
-    <div class="company-name">NAB</div>
-    <div class="company-type">Banking, headquartered in Melbourne</div>
-    <div class="company-roles"><span class="company-role-tag">Software Engineer</span><span class="company-role-tag">AI Engineer</span></div>
-    <div class="company-find">Find: Engineering Manager, Technology Talent Acquisition</div>
-  </div>
-  <div class="company-card">
-    <div class="company-name">Telstra</div>
-    <div class="company-type">Telecommunications</div>
-    <div class="company-roles"><span class="company-role-tag">Software Engineer</span><span class="company-role-tag">Machine Learning Engineer</span></div>
-    <div class="company-find">Find: AI/ML Team Lead, Talent Acquisition Partner</div>
-  </div>
-  <div class="company-card">
-    <div class="company-name">Culture Amp</div>
-    <div class="company-type">HR tech, headquartered in Melbourne</div>
-    <div class="company-roles"><span class="company-role-tag">Software Engineer</span><span class="company-role-tag">ML Engineer</span></div>
-    <div class="company-find">Find: Engineering Manager, Talent Partner</div>
-  </div>
-  <div class="company-card">
-    <div class="company-name">Zendesk</div>
-    <div class="company-type">Customer service software, Melbourne engineering hub</div>
-    <div class="company-roles"><span class="company-role-tag">Software Engineer</span><span class="company-role-tag">AI Engineer</span></div>
-    <div class="company-find">Find: Engineering Recruiter</div>
-  </div>
-  <div class="company-card">
-    <div class="company-name">Deloitte Digital</div>
-    <div class="company-type">Technology consulting</div>
-    <div class="company-roles"><span class="company-role-tag">Software Engineer</span><span class="company-role-tag">AI/ML Consultant</span></div>
-    <div class="company-find">Find: Technology Talent Team</div>
-  </div>
-  <div class="company-card">
-    <div class="company-name">University of Melbourne</div>
-    <div class="company-type">Research computing and applied AI labs</div>
-    <div class="company-roles"><span class="company-role-tag">Software Engineer</span><span class="company-role-tag">Research Assistant, AI/ML</span></div>
-    <div class="company-find">Find: Research Computing Team, IT Careers Hub</div>
-  </div>
-</div>
-
-<!-- SECTION 10 -->
-<div class="section">
-  <div class="section-num">Section 10</div>
-  <div class="section-title">In Order. Don't Jump Ahead.</div>
-  <div class="rule"></div>
-
-  <div class="checklist-group">
-    <div class="checklist-group-label">Day 1 Foundations</div>
-    <div class="checklist-item"><div class="check-box"></div>Update photo</div>
-    <div class="checklist-item"><div class="check-box"></div>Upload new banner</div>
-    <div class="checklist-item"><div class="check-box"></div>Update custom URL</div>
-    <div class="checklist-item"><div class="check-box"></div>Set Open to Work to Recruiters Only</div>
-  </div>
-
-  <div class="checklist-group">
-    <div class="checklist-group-label">Day 1 to 2 Copy</div>
-    <div class="checklist-item"><div class="check-box"></div>Paste new headline</div>
-    <div class="checklist-item"><div class="check-box"></div>Paste new About section</div>
-    <div class="checklist-item"><div class="check-box"></div>Add Coles role with retitled function</div>
-    <div class="checklist-item"><div class="check-box"></div>Update all three experience entries</div>
-    <div class="checklist-item"><div class="check-box"></div>Rebuild skills list, remove irrelevant tools</div>
-  </div>
-
-  <div class="checklist-group">
-    <div class="checklist-group-label">Day 1 Content</div>
-    <div class="checklist-item"><div class="check-box"></div>Publish Day 1 post</div>
-    <div class="checklist-item"><div class="check-box"></div>Pin Master's degree to Featured</div>
-  </div>
-
-  <div class="checklist-group">
-    <div class="checklist-group-label">Day 3 Outreach</div>
-    <div class="checklist-item"><div class="check-box"></div>Send five connection requests using the template</div>
-    <div class="checklist-item"><div class="check-box"></div>Run the search string against three target companies</div>
-  </div>
-
-  <div class="checklist-group">
-    <div class="checklist-group-label">Day 5 and Day 10</div>
-    <div class="checklist-item"><div class="check-box"></div>Publish Day 5 post</div>
-    <div class="checklist-item"><div class="check-box"></div>Publish Day 10 post</div>
-    <div class="checklist-item"><div class="check-box"></div>Pin capstone dashboard to Featured</div>
-  </div>
-
-  <div style="font-size:13px;color:var(--ink2);margin-top:20px;">Completing this profile does not guarantee interviews. What it does is close the gap between what Venkatesh can actually do and what a recruiter searching Melbourne for a Software Engineer can see in thirty seconds. Given the local Master's and real coding projects already in place, that gap closing is the single highest-leverage move available to him right now.</div>
-
-  <div class="rec-cards">
-    <div class="card">
-      <div class="priority-label">Priority 1</div>
-      <div class="card-title">Ask your UniSA course coordinator</div>
-      <div class="copy-block">Hi, I finished my Master of IT with you last year and I'm now targeting Software Engineer and AI/ML roles in Melbourne. Would you be open to a quick chat about who in your network might be hiring, or any alumni events coming up?</div>
-    </div>
-    <div class="card">
-      <div class="priority-label">Priority 2</div>
-      <div class="card-title">Ask a Kotak Mahindra colleague</div>
-      <div class="copy-block">Hi, hope things are going well at Kotak. I'm now based in Melbourne finishing my Master's in IT and looking at Software Engineer roles here. If you know anyone in engineering or tech teams in Australia, I'd really appreciate an introduction.</div>
-    </div>
-  </div>
-</div>
-
 </div>
 
 <script>
-let current = 0;
-const slides = document.querySelectorAll('.post-slide');
-const dots = document.querySelectorAll('.post-dot');
-const total = slides.length;
+let currentPost = 0;
+const totalPosts = 3;
 
-function changeSlide(dir) {
-  slides[current].classList.remove('active');
-  dots[current].classList.remove('active');
-  current = Math.max(0, Math.min(total - 1, current + dir));
-  slides[current].classList.add('active');
-  dots[current].classList.add('active');
-  document.getElementById('prevBtn').disabled = current === 0;
-  document.getElementById('nextBtn').disabled = current === total - 1;
+function movePost(dir) {
+  currentPost += dir;
+  updatePostView();
 }
 
-document.querySelectorAll('.copy-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const body = btn.closest('.post-card').querySelector('.post-body');
-    navigator.clipboard.writeText(body.innerText).then(() => {
-      btn.textContent = 'Copied';
-      btn.classList.add('copied');
-      setTimeout(() => { btn.textContent = 'Copy post'; btn.classList.remove('copied'); }, 2000);
-    });
+function updatePostView() {
+  document.querySelectorAll('.post-slide').forEach((el, i) => {
+    el.classList.toggle('active', i === currentPost);
   });
-});
+  document.querySelectorAll('.post-dot').forEach((el, i) => {
+    el.classList.toggle('active', i === currentPost);
+  });
+  document.getElementById('prevBtn').disabled = currentPost === 0;
+  document.getElementById('nextBtn').disabled = currentPost === totalPosts - 1;
+}
+
+function copyPost(id, btn) {
+  const text = document.getElementById(id).innerText;
+  navigator.clipboard.writeText(text).then(() => {
+    const original = btn.textContent;
+    btn.textContent = 'Copied';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = original; btn.classList.remove('copied'); }, 1800);
+  });
+}
 </script>
+
 </body>
 </html>
